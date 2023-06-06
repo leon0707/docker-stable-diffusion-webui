@@ -15,8 +15,6 @@ services:
       #   For GID: echo $(id -g)
     volumes:
       - ./models:/home/user/stable-diffusion-webui/models/Stable-diffusion
-      # SET FOR DEBUG PURPOSE
-      - ./entrypoint-debug.sh:/usr/local/bin/entrypoint.sh
     ports:
       - 7860:7860
       - 7861:7861
