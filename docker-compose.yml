@@ -22,7 +22,6 @@ services:
     privileged: true
     deploy:
       resources:
-        reservations:
-          limits:
-            cpus: "4.00"
-            memory: 16G
+        limits:
+          cpus: "4.00"
+          memory: 16G
