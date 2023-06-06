@@ -15,7 +15,14 @@ services:
       #   For GID: echo $(id -g)
     volumes:
       - ./models:/home/user/stable-diffusion-webui/models/Stable-diffusion
+      - ./settings/webui-user.sh:/home/user/stable-diffusion-webui/webui-user.sh
     ports:
       - 7860:7860
       - 7861:7861
     privileged: true
+    deploy:
+      resources:
+        reservations:
+          limits:
+            cpus: "4.00"
+            memory: 16G
