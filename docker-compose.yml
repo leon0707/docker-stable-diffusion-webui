@@ -4,35 +4,20 @@ services:
     image: kestr3l/stable-diffusion-webui:1.2.0
     restart: unless-stopped
     container_name: stable-diffusion-webui
-    secrets:
-      - gradio_auth
     environment:
       - NVIDIA_DISABLE_REQUIRE=1
       - NVIDIA_DRIVER_CAPABILITIES=all
-      - UID=<YOUR_UID>
-      - GID=<YOUR_GID>
+      - UID=1000
+      - GID=1000
       - DIR_GRADIO_AUTH=/run/secrets/gradio_auth
       # Get UID and GID using following commands:
       #   For UID: echo $(id -u)
       #   For GID: echo $(id -g)
     volumes:
-      - <YOUR_DIRECTORY_TO_MODELS>:/home/user/stable-diffusion-webui/models/Stable-diffusion
-      - <YOUR_DIRECTORY_TO_OUTPUT>:/home/user/stable-diffusion-webui/outputs
-      - <YOUR_DIRECTORY_TO_STYLES>:/home/user/stable-diffusion-webui/styles
-      - <YOUR_DIRECTORY_TO_EXTENSIONS>:/home/user/stable-diffusion-webui/models/extensions
-      - <YOUR_DIRECTORY_TO_VAE>:/home/user/stable-diffusion-webui/models/VAE
-      - <YOUR_DIRECTORY_TO_config.json>:/home/user/stable-diffusion-webui/config.json
-      - <YOUR_DIRECTORY_TO_webui-user.sh>:/home/user/stable-diffusion-webui/webui-user.sh
+      - ./models:/home/user/stable-diffusion-webui/models/Stable-diffusion
       # SET FOR DEBUG PURPOSE
-      # - <YOUR_DIRECTORY_TO_entrypoint-debug.sh>:/usr/local/bin/entrypoint.sh
+      - ./entrypoint-debug.sh:/usr/local/bin/entrypoint.sh
     ports:
-      - <YOUR_PREFERRED_PORT>:7860
+      - 7860:7860
+      - 7861:7861
     privileged: true
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
-secrets:
-  gradio_auth:
-    file: ./secrets/gradio_auth.txt
