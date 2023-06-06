@@ -11,9 +11,9 @@
 
 # Commandline arguments for webui.py, for example: export COMMANDLINE_ARGS="--medvram --opt-split-attention"
 export COMMANDLINE_ARGS="--listen \
+    --use-cpu all --no-half --no-half-vae \
     --enable-insecure-extension-access \
-    --xformers --skip-torch-cuda-test \
-    --gradio-auth-path ${DIR_GRADIO_AUTH} \
+    --skip-torch-cuda-test \
     --styles-file styles/styles.csv \
     --no-download-sd-model"
 
