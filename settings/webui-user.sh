@@ -13,7 +13,6 @@
 export COMMANDLINE_ARGS="--listen \
     --enable-insecure-extension-access \
     --xformers --skip-torch-cuda-test \
-    --gradio-auth-path ${DIR_GRADIO_AUTH} \
     --styles-file styles/styles.csv \
     --no-download-sd-model"
 
