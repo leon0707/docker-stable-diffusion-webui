@@ -84,10 +84,7 @@ RUN \
     && mkdir /home/user/stable-diffusion-webui/styles
 
 RUN \
-    wget -O \
-        /home/user/stable-diffusion-webui/models/Stable-diffusion/v1-5-pruned-emaonly.safetensors \
-        https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.safetensors \
-    && COMMANDLINE_ARGS="--skip-torch-cuda-test --no-download-sd-model --exit" \
+    COMMANDLINE_ARGS="--skip-torch-cuda-test --no-download-sd-model --exit" \
         /home/user/stable-diffusion-webui/webui.sh
 
 # INSTALL PYTHON DEPENDENCIES THAT ARE NOT INSTALLED BY THE SCRIPT
