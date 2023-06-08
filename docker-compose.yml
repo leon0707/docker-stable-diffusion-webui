@@ -9,10 +9,6 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=all
       - UID=1000
       - GID=1000
-      - DIR_GRADIO_AUTH=/run/secrets/gradio_auth
-      # Get UID and GID using following commands:
-      #   For UID: echo $(id -u)
-      #   For GID: echo $(id -g)
     volumes:
       - ./models:/home/user/stable-diffusion-webui/models/Stable-diffusion
       - ./settings/webui-user.sh:/home/user/stable-diffusion-webui/webui-user.sh
@@ -22,6 +18,6 @@ services:
     privileged: true
     deploy:
       resources:
-        limits:
-          cpus: "4.00"
-          memory: 16G
+        reservations:
+          devices:
+            - capabilities: [gpu]
