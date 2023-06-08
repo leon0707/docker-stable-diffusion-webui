@@ -1,7 +1,7 @@
 version: "3"
 services:
   stable-diffusion:
-    image: kestr3l/stable-diffusion-webui:1.2.0
+    build: .
     restart: unless-stopped
     container_name: stable-diffusion-webui
     environment:
