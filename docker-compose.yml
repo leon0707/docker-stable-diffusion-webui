@@ -1,7 +1,7 @@
 version: "3"
 services:
   stable-diffusion:
-    build: .
+    build: ./
     restart: unless-stopped
     container_name: stable-diffusion-webui
     environment:
