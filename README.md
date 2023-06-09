@@ -21,7 +21,7 @@
 ```shell
 DOCKER_BUILDKIT=1 docker build --no-cache \
 --build-arg BASEIMAGE=nvidia/cuda \
---build-arg BASETAG=11.7.1-cudnn8-devel-ubuntu22.04 \
+--build-arg BASETAG=12.1.1-cudnn8-devel-ubuntu22.04 \
 -t kestr3l/stable-diffusion-webui:1.2.1 \
 -f Dockerfile .
 ```
